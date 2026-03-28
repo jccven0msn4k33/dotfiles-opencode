@@ -51,28 +51,28 @@ See [AGENTS-README.md](AGENTS-README.md) for full architecture and routing detai
 
 ## Architecture
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────┐
-│                         USER REQUEST                           │
+│                          USER REQUEST                           │
 └─────────────────────────────────────────────────────────────────┘
                                   │
                                   ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                     OBAMA (Orchestrator)                        │
 │  ┌───────────────────────────────────────────────────────────┐  │
-│  │ 1. Detect project type (files, git, imports)             │  │
+│  │ 1. Detect project type (files, git, imports)              │  │
 │  │ 2. Load relevant skill(s)                                 │  │
 │  │ 3. Route to specialized agent OR answer directly          │  │
 │  └───────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
                                   │
-        ┌─────────────────────────┼─────────────────────────┐
-        │                         │                         │
-        ▼                         ▼                         ▼
-┌───────────────┐     ┌───────────────┐     ┌───────────────┐
-│ SKILLS        │     │ AGENTS        │     │ DIRECT ANSWER │
-│ (16 skills)   │     │ (6 agents)    │     │ (simple info) │
-└───────────────┘     └───────────────┘     └───────────────┘
+        ┌─────────────────────────┼───────────────────────┐
+        │                         │                       │
+        ▼                         ▼                       ▼
+┌───────────────┐         ┌───────────────┐       ┌───────────────┐
+│ SKILLS        │         │ AGENTS        │       │ DIRECT ANSWER │
+│ (16 skills)   │         │ (6 agents)    │       │ (simple info) │
+└───────────────┘         └───────────────┘       └───────────────┘
 ```
 
 For detailed routing tables, see [AGENTS-README.md](AGENTS-README.md).
