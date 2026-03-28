@@ -4,28 +4,28 @@ How the opencode orchestrator routes requests to specialized agents.
 
 ## Overview
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────┐
-│                         USER REQUEST                           │
+│                          USER REQUEST                           │
 └─────────────────────────────────────────────────────────────────┘
                                   │
                                   ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                     OBAMA (Orchestrator)                        │
 │  ┌───────────────────────────────────────────────────────────┐  │
-│  │ 1. Detect project type (files, git, imports)             │  │
+│  │ 1. Detect project type (files, git, imports)              │  │
 │  │ 2. Load relevant skill(s)                                 │  │
 │  │ 3. Route to specialized agent OR answer directly          │  │
-│  └───────────────────────────────────────────────────────────�─┘  │
+│  └───────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
                                   │
-        ┌─────────────────────────┼─────────────────────────┐
-        │                         │                         │
-        ▼                         ▼                         ▼
-┌───────────────┐     ┌───────────────┐     ┌───────────────┐
-│ SKILLS        │     │ AGENTS        │     │ DIRECT ANSWER │
-│ (16 skills)   │     │ (6 agents)    │     │ (simple info) │
-└───────────────┘     └───────────────┘     └───────────────┘
+        ┌─────────────────────────┼───────────────────────┐
+        │                         │                       │
+        ▼                         ▼                       ▼
+┌───────────────┐         ┌───────────────┐       ┌───────────────┐
+│ SKILLS        │         │ AGENTS        │       │ DIRECT ANSWER │
+│ (16 skills)   │         │ (6 agents)    │       │ (simple info) │
+└───────────────┘         └───────────────┘       └───────────────┘
 ```
 
 ## Available Agents
@@ -46,12 +46,6 @@ How the opencode orchestrator routes requests to specialized agents.
 | **component-doc-agent** | Understanding code | Explain component purpose, usage, API documentation |
 | **project-onboarding-agent** | Project setup | Structure, setup instructions, architecture overview |
 | **ruby-cocoder** | Complex Ruby tasks | Deep Ruby implementation, refactoring, patterns |
-
-### Project-Specific Agents
-
-| Agent | Purpose |
-|-------|---------|
-| **dotfiles-maintainer** | Cross-platform dotfiles maintenance (in dotfiles repo only) |
 
 ## Skill Routing
 
