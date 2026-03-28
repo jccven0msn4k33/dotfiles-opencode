@@ -207,7 +207,7 @@ The `opencode-mem` plugin uses environment variables for user profile informatio
 
 ## License
 
-Copyright (c) 2024 John Cyrill Corsanes
+Copyright (c) 2026 John Cyrill Corsanes
 
 This project is licensed under the **AI-Restricted MIT License** — see [LICENSE](LICENSE) for full text.
 
