@@ -18,4 +18,4 @@ For projects with `docker-compose.yml` or `compose.yml`, run **linting, tests, a
 ## Git Rules
 
 - Load the `git` skill for all Git operations: `skill(name="git")`
-- Never run destructive git commands without user confirmation.
+- Never run specific git commands such as `commit` and `push` which is considered as the RED FLAG.
