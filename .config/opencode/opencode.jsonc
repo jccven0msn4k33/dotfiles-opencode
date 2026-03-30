@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  "model": "dmr/ai/llama3.2:3B-Q4_K_M",
-  "small_model": "dmr/ai/llama3.2:3B-Q4_K_M",
+  "model": "{env:OPENCODE_MODEL}",
+  "small_model": "{env:OPENCODE_SMALL_MODEL}",
   "instructions": [
     "AGENTS.md",
     "GIT_COMMIT_GUARD.md"
@@ -15,6 +15,9 @@
   ],
   "default_agent": "obama",
   "permission": {
+    "tool": {
+      "*": "allow"
+    },
     "skill": {
       "*": "allow",
       "git": "allow"
