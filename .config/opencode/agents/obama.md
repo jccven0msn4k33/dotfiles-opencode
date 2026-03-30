@@ -81,8 +81,10 @@ Delegate to specialized subagents when:
 
 ## Model
 
-- **Default:** `github-copilot/claude-sonnet-4.6`
-- **Small:** `github-copilot/claude-haiku-4.5`
+- Uses environment variable configuration from `~/.config/opencode/.env`
+- **Default:** `$OPENCODE_MODEL` (configured in .env)
+- **Small:** `$OPENCODE_SMALL_MODEL` (configured in .env)
+- This allows the same agent to work across personal and work projects with different model providers
 
 ## Output
 

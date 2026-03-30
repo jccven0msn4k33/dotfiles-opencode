@@ -121,6 +121,57 @@ Enable MCPs in `opencode.jsonc` by setting `"enabled": true`.
 
 ---
 
+## Model Configuration
+
+**IMPORTANT:** This configuration uses **environment variables** for model selection to support multiple environments (work, personal, different providers).
+
+### Required Environment Variables
+
+Add these to `~/.config/opencode/.env`:
+
+```bash
+# Model Configuration (REQUIRED)
+OPENCODE_MODEL=amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0
+OPENCODE_SMALL_MODEL=amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0
+
+# Provider-specific configuration
+# For Amazon Bedrock:
+AWS_REGION=ap-southeast-2
+AWS_PROFILE=your-aws-profile
+
+# For GitHub Copilot (if using instead of Bedrock):
+# OPENCODE_MODEL=github-copilot/claude-sonnet-4
+# OPENCODE_SMALL_MODEL=github-copilot/claude-haiku-4
+```
+
+### Why Environment Variables?
+
+✅ **Multi-environment support** - Switch between work (AWS Bedrock) and personal (GitHub Copilot) projects  
+✅ **Subagent compatibility** - Subagents inherit model config correctly  
+✅ **Provider flexibility** - Change providers without editing config files  
+✅ **No hardcoded models** - Same config works across all machines
+
+### Configuration Hierarchy
+
+Models are resolved in this order:
+
+1. Project `.opencode/opencode.jsonc` (if it defines a model)
+2. Global `~/.config/opencode/opencode.jsonc` (uses `{env:OPENCODE_MODEL}`)
+3. Environment variable `$OPENCODE_MODEL` from `.env` file
+
+### Supported Providers
+
+| Provider | Model Prefix | Example |
+|----------|--------------|---------|
+| Amazon Bedrock | `amazon-bedrock/` | `amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0` |
+| GitHub Copilot | `github-copilot/` | `github-copilot/claude-sonnet-4` |
+| Ollama | `ollama/` | `ollama/qwen2.5-coder:32b` |
+| OpenRouter | `openrouter/` | `openrouter/anthropic/claude-sonnet-4` |
+
+For detailed troubleshooting and best practices, see the [Model Configuration Guide](https://github.com/jcchikikomori/.dotfiles/blob/main/docs/OPENCODE_MODEL_CONFIG.md) in the main dotfiles repo.
+
+---
+
 ## Environment Loading
 
 ### Global vs Project-Level

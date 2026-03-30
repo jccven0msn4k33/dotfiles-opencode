@@ -116,3 +116,46 @@ permission:
 | `deny` | Agent cannot execute |
 
 Permissions are defined in `opencode.jsonc` under `permission`.
+
+---
+
+## Model Configuration for Agents
+
+**All agents use environment-based model configuration** to support multiple work environments.
+
+### Environment Variables
+
+Agents read model configuration from:
+
+- `$OPENCODE_MODEL` - Primary model (e.g., `amazon-bedrock/anthropic.claude-sonnet-4-5...`)
+- `$OPENCODE_SMALL_MODEL` - Smaller/faster model for quick tasks
+
+### Why No Hardcoded Models?
+
+❌ **Before:** Agent files specified `github-copilot/claude-sonnet-4.6`  
+✅ **Now:** Agent files reference `$OPENCODE_MODEL` from environment
+
+**Benefits:**
+- Switch between work (AWS Bedrock) and personal (GitHub Copilot) seamlessly
+- Subagents inherit correct model configuration
+- Same agent works across all projects and machines
+
+### Configuration Files
+
+```jsonc
+// ~/.config/opencode/opencode.jsonc
+{
+  "model": "{env:OPENCODE_MODEL}",
+  "small_model": "{env:OPENCODE_SMALL_MODEL}"
+}
+```
+
+```bash
+# ~/.config/opencode/.env
+OPENCODE_MODEL=amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0
+OPENCODE_SMALL_MODEL=amazon-bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0
+AWS_REGION=ap-southeast-2
+AWS_PROFILE=your-profile
+```
+
+For troubleshooting model configuration issues, see the [Model Configuration Guide](https://github.com/jcchikikomori/.dotfiles/blob/main/docs/OPENCODE_MODEL_CONFIG.md).
