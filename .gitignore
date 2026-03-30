@@ -1,3 +1,7 @@
+**/node_modules/
 .config/opencode/memory_data/
+!.config/opencode/memory_data/.gitinclude
 .config/opencode/.env
 .config/opencode/node_modules/
+.config/opencode/oh-my-opencode-slim.json
+.config/opencode/scripts/generate-slim-config/node_modules/

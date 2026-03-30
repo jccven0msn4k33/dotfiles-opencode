@@ -1,0 +1,29 @@
+{
+  "name": "generate-slim-config",
+  "version": "1.0.0",
+  "description": "Auto-generate oh-my-opencode-slim configuration with model detection",
+  "type": "module",
+  "bin": {
+    "generate-slim-config": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node --loader ts-node/esm src/index.ts"
+  },
+  "keywords": [
+    "opencode",
+    "oh-my-opencode-slim",
+    "config-generator"
+  ],
+  "author": "jcchikikomori",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "strip-json-comments": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.3"
+  }
+}

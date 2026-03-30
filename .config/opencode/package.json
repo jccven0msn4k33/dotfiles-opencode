@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@opencode-ai/plugin": "1.3.2"
+    "@opencode-ai/plugin": "1.3.0",
+    "oh-my-opencode-slim": "^0.9.0"
   }
 }

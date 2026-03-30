@@ -1,0 +1,1 @@
+{"version":3,"file":"models.d.ts","sourceRoot":"","sources":["../../src/lib/models.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,KAAK,EAAE,gBAAgB,EAAE,MAAM,aAAa,CAAC;AAI3D,wBAAsB,kBAAkB,CAAC,OAAO,GAAE,OAAe,GAAG,OAAO,CAAC,KAAK,EAAE,CAAC,CAkBnF;AA8DD,wBAAgB,gBAAgB,CAAC,MAAM,EAAE,KAAK,EAAE,GAAG,gBAAgB,CAYlE"}
