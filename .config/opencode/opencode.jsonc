@@ -125,6 +125,16 @@
       },
       "enabled": false
     },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics"
+      ],
+      "enabled": true
+    },
     "atlassian-mcp": {
       "type": "local",
       "command": [
